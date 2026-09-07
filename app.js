@@ -218,6 +218,21 @@ function App() {
     }
   ];
 
+  const certifications = [
+    {
+      title: "Professional Machine Learning Engineer",
+      issuer: "Google Cloud",
+      icon: "cloud",
+      badge: "Google Cloud Certified"
+    },
+    {
+      title: "Certified Machine Learning Engineer - Associate",
+      issuer: "AWS (Amazon Web Services)",
+      icon: "award",
+      badge: "AWS Certified"
+    }
+  ];
+
   const education = [
     {
       institution: "Lovely Professional University",
@@ -297,6 +312,16 @@ function App() {
           {/* Right Action Button */}
           <div className="hidden md:flex items-center gap-3">
             <a
+              href="resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-1.5 rounded-full bg-[#141414] hover:bg-[#1C1C1C] text-white border border-[#262626] hover:border-white font-sans text-xs font-semibold transition-all flex items-center gap-1.5"
+              title="Open Resume"
+            >
+              <Icon name="file-text" size={13} />
+              <span>Resume</span>
+            </a>
+            <a
               href="#contact"
               className="px-4 py-1.5 rounded-full bg-white text-black font-sans text-xs font-semibold hover:bg-gray-200 transition-all transform hover:-translate-y-0.5"
             >
@@ -330,7 +355,17 @@ function App() {
                 {link.name}
               </a>
             ))}
-            <div className="pt-2 border-t border-[#262626]">
+            <div className="pt-2 border-t border-[#262626] flex flex-col gap-2">
+              <a
+                href="resume.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full bg-[#141414] text-white border border-[#262626] font-semibold text-xs hover:border-white"
+              >
+                <Icon name="file-text" size={14} />
+                <span>View Resume</span>
+              </a>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -433,6 +468,18 @@ function App() {
               <Icon name={copiedType === "Email" ? "check" : "copy"} size={14} />
               <span>kesharwanisajal01@gmail.com</span>
             </button>
+
+            <a
+              href="resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full bg-white text-black font-sans text-xs font-bold hover:bg-gray-200 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 shadow-lg"
+              title="Open & Download Resume"
+            >
+              <Icon name="file-text" size={15} />
+              <span>Resume</span>
+              <Icon name="external-link" size={13} className="text-gray-600" />
+            </a>
           </div>
 
           {/* Social Links Row */}
@@ -657,28 +704,54 @@ function App() {
           </div>
         </section>
 
-        {/* 6. ACHIEVEMENTS & HIGHLIGHTS */}
+        {/* 6. ACHIEVEMENTS & CERTIFICATIONS */}
         <section id="achievements" className="space-y-12">
           <div className="flex flex-col gap-2">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Accomplishments & Highlights
+              Accomplishments & Certifications
             </h2>
-            <p className="text-sm text-[#8A8A8A]">Hackathons, competitive milestones, and student organization initiatives.</p>
+            <p className="text-sm text-[#8A8A8A]">Hackathons, competitive milestones, student initiatives, and cloud certifications.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {achievements.map((ach, idx) => (
-              <div key={idx} className="spotlight-card p-6 sm:p-8 space-y-4">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="mono-chip bg-white text-black font-semibold border-white">
-                    {ach.event}
-                  </span>
-                  <span className="font-mono text-xs text-[#8A8A8A]">{ach.date}</span>
+          <div className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {achievements.map((ach, idx) => (
+                <div key={idx} className="spotlight-card p-6 sm:p-8 space-y-4">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="mono-chip bg-white text-black font-semibold border-white">
+                      {ach.event}
+                    </span>
+                    <span className="font-mono text-xs text-[#8A8A8A]">{ach.date}</span>
+                  </div>
+                  <h4 className="font-display font-bold text-xl text-white">{ach.title}</h4>
+                  <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">{ach.desc}</p>
                 </div>
-                <h4 className="font-display font-bold text-xl text-white">{ach.title}</h4>
-                <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">{ach.desc}</p>
+              ))}
+            </div>
+
+            {/* Certifications Sub-Grid */}
+            <div className="pt-2 space-y-4">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-[#8A8A8A] flex items-center gap-2">
+                <Icon name="award" size={14} />
+                <span>Professional Certifications:</span>
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {certifications.map((cert, idx) => (
+                  <div key={idx} className="spotlight-card p-5 flex items-start gap-4 border border-[#262626]">
+                    <div className="p-2.5 rounded-xl bg-[#1F1F1F] text-white shrink-0 mt-0.5">
+                      <Icon name={cert.icon} size={20} />
+                    </div>
+                    <div className="space-y-1">
+                      <span className="mono-chip bg-white/10 text-white text-[11px] px-2.5 py-0.5 border-[#333333]">
+                        {cert.badge}
+                      </span>
+                      <h4 className="font-display font-bold text-sm sm:text-base text-white pt-1">{cert.title}</h4>
+                      <p className="text-xs text-[#8A8A8A]">{cert.issuer}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </section>
 

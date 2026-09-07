@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sajal Kesharwani — Resume</title>
+  <meta name="description" content="Resume of Sajal Kesharwani - 2nd Year B.Tech CSE Student, Aspiring Software Engineer & Full-Stack Developer." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            resume: {
+              blue: '#1d4ed8',
+              darkblue: '#1e40af',
+              heading: '#1e3a8a',
+              text: '#1f2937',
+              muted: '#4b5563',
+              light: '#f8fafc',
+              border: '#e2e8f0',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 15mm 12mm 15mm;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #111827;
+      background-color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-container {
+      width: 100%;
+      max-width: 860px;
+      min-height: 297mm;
+      background: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-title {
+      color: #1e40af;
+      font-size: 0.925rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid #1e40af;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .resume-container {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+      }
+
+      a {
+        text-decoration: none !important;
+        color: inherit !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen py-6 sm:py-10 px-3 sm:px-6 flex flex-col items-center justify-start">
+
+  <!-- Top Action Bar (hidden when printing) -->
+  <header class="no-print w-full max-w-[860px] mb-6 flex flex-wrap items-center justify-between gap-3 bg-slate-900/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-slate-800 text-white shadow-xl">
+    <div class="flex items-center gap-3">
+      <a href="index.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold transition-all border border-slate-700 text-slate-200 hover:text-white">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Back to Portfolio</span>
+      </a>
+      <span class="text-xs text-slate-400 font-mono hidden sm:inline">Sajal_Kesharwani_Resume.pdf</span>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button onclick="window.print()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all shadow-md hover:shadow-blue-500/20">
+        <i data-lucide="printer" class="w-4 h-4"></i>
+        <span>Print / Save PDF</span>
+      </button>
+
+      <a href="mailto:kesharwanisajal01@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium transition-all text-slate-300 hover:text-white border border-slate-700">
+        <i data-lucide="mail" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">Contact</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Resume Sheet -->
+  <main class="resume-container rounded-lg sm:rounded-xl p-6 sm:p-10 md:p-12 text-[#111827]">
+
+    <!-- HEADER / CONTACT INFO -->
+    <section class="border-b border-gray-200 pb-5 mb-5">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-[#1d4ed8] tracking-tight">
+          Sajal Kesharwani
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-6 text-xs sm:text-[13px] text-gray-700">
+        <div class="space-y-1">
+          <p class="flex items-center gap-1.5">
+            <span class="font-semibold text-gray-900">LinkedIn:</span>
+            <a href="https://www.linkedin.com/in/sajal-kesharwani-" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">
+              www.linkedin.com/in/sajal-kesharwani-
+            </a>
+          </p>
+          <p class="flex items-center gap-1.5">
+            <span class="font-semibold text-gray-900">GitHub:</span>
+            <a href="https://github.com/SajalKesharwani" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">
+              https://github.com/SajalKesharwani
+            </a>
+          </p>
+          <p class="flex items-center gap-1.5">
+            <span class="font-semibold text-gray-900">Portfolio:</span>
+            <a href="https://sajalkesharwani.vercel.app" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline">
+              www.sajalkesharwani.vercel.app
+            </a>
+          </p>
+        </div>
+
+        <div class="space-y-1 sm:text-right">
+          <p class="flex items-center gap-1.5 sm:justify-end">
+            <span class="font-semibold text-gray-900">Email:</span>
+            <a href="mailto:kesharwanisajal01@gmail.com" class="text-blue-700 hover:underline">
+              kesharwanisajal01@gmail.com
+            </a>
+          </p>
+          <p class="flex items-center gap-1.5 sm:justify-end">
+            <span class="font-semibold text-gray-900">Mobile:</span>
+            <a href="tel:+919399718763" class="text-gray-800 hover:text-blue-700">
+              +91 9399718763
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SUMMARY -->
+    <section class="mb-5">
+      <h2 class="section-title">SKILLS SUMMARY</h2>
+      <div class="grid grid-cols-1 gap-y-1 text-xs sm:text-[13px] leading-relaxed">
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Languages:</span>
+          <span class="text-gray-800">Python, C++, C, JavaScript</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Frameworks & Libraries:</span>
+          <span class="text-gray-800">React.js, Next.js, Tailwind, Flutter</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Databases:</span>
+          <span class="text-gray-800">MongoDB, PostgreSQL</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Cloud / DevOps:</span>
+          <span class="text-gray-800">Docker, Kubernetes, Git(CI/CD)</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Tools:</span>
+          <span class="text-gray-800">Supabase, Razor pay, Vercel</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:gap-2">
+          <span class="font-bold text-gray-900 sm:w-48 shrink-0">Soft Skills:</span>
+          <span class="text-gray-800">Problem Solving, Leadership, Flexibility</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="mb-5">
+      <h2 class="section-title">PROJECTS</h2>
+
+      <!-- Project 1: WorkBridge -->
+      <div class="mb-4">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px] mb-1">
+          <div class="font-bold text-gray-900">
+            Workbridge – Interactive Website for Freelancers | 
+            <a href="https://github.com/SajalKesharwani" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline font-semibold">GitHub</a> | 
+            <a href="https://workbrdge.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline font-semibold">Live</a>
+          </div>
+          <div class="text-xs text-gray-600 sm:text-right font-medium">April 2026 – Present</div>
+        </div>
+        <ul class="list-disc list-outside ml-4 text-xs sm:text-[12.5px] text-gray-700 space-y-1 leading-normal">
+          <li>Developed a full-stack freelance marketplace, WorkBridge, enabling clients to post jobs and freelancers to discover, apply for, and complete projects across multiple skill categories.</li>
+          <li>Implemented secure user authentication and role-based workflows for clients and freelancers, managing job postings, applications, profiles, and project interactions.</li>
+          <li>Engineered a responsive and intuitive UI with dedicated dashboards for clients and freelancers, streamlining job discovery, application tracking, and project management.</li>
+          <li>Integrated scalable backend APIs and database architecture to efficiently handle users, jobs, applications, skills, and transactions while maintaining reliable platform performance.</li>
+        </ul>
+        <div class="text-xs sm:text-[12px] text-gray-600 mt-1 italic">
+          <strong class="text-gray-800 not-italic">Tech Stack:</strong> Vite, Tailwind, Supabase, Razorpay
+        </div>
+      </div>
+
+      <!-- Project 2: LRNit -->
+      <div class="mb-2">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px] mb-1">
+          <div class="font-bold text-gray-900">
+            LRNit – Interactive Website for Student Organization LRNit | 
+            <a href="https://github.com/SajalKesharwani" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline font-semibold">GitHub</a> | 
+            <a href="https://lrnitclub.netlify.app/" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:underline font-semibold">Live</a>
+          </div>
+          <div class="text-xs text-gray-600 sm:text-right font-medium">December 2025 – January 2026</div>
+        </div>
+        <ul class="list-disc list-outside ml-4 text-xs sm:text-[12.5px] text-gray-700 space-y-1 leading-normal">
+          <li>Designed a responsive LRNit website featuring interactive Gallery, About Us, Contact Us, and Registration pages for an engaging user experience.</li>
+          <li>Built a dedicated admin dashboard to efficiently manage student registrations, gallery content, and organizational information.</li>
+          <li>Streamlined student registration and communication through interactive forms and organized content management features..</li>
+        </ul>
+        <div class="text-xs sm:text-[12px] text-gray-600 mt-1 italic">
+          <strong class="text-gray-800 not-italic">Tech Stack:</strong> Vite, Supabase, React, Vercel
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS / CERTIFICATES -->
+    <section class="mb-5">
+      <h2 class="section-title">CERTIFICATIONS / CERTIFICATES</h2>
+      <div class="text-xs sm:text-[13px] text-gray-800 space-y-1">
+        <p class="font-medium text-gray-900">
+          Professional Machine Learning Engineer | <span class="text-blue-800 font-semibold">Google Cloud</span>
+        </p>
+        <p class="font-medium text-gray-900">
+          Certified Machine Learning Engineer - Associate | <span class="text-blue-800 font-semibold">AWS</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="mb-5">
+      <h2 class="section-title">ACHIEVEMENTS</h2>
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px]">
+        <div class="font-semibold text-gray-900">Top 15 – AtherX Hackathon among 100+ teams</div>
+        <div class="text-xs text-gray-600 font-medium">March 2026</div>
+      </div>
+    </section>
+
+    <!-- EXTRACURRICULAR ACTIVITIES -->
+    <section class="mb-5">
+      <h2 class="section-title">EXTRACURRICULAR ACTIVITIES</h2>
+      <ul class="list-disc list-outside ml-4 text-xs sm:text-[12.5px] text-gray-700 space-y-1 leading-normal">
+        <li>
+          <strong class="text-gray-900">Member of LRNit (Student Organization)</strong>, Hosted an event with over 200 participants worked in Technical, Event Management.
+        </li>
+        <li>Promoted an event for an organisation and made over 100 people to participate in it.</li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="mb-2">
+      <h2 class="section-title">EDUCATION</h2>
+
+      <!-- LPU -->
+      <div class="mb-2.5">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px]">
+          <span class="font-bold text-gray-900">Lovely Professional University</span>
+          <span class="text-xs text-gray-600">Jalandhar, Punjab</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[12.5px] text-gray-700">
+          <span>B.Tech CSE — <strong class="text-gray-900">CGPA: 8.2</strong></span>
+          <span class="text-xs text-gray-600">August 2025 – Present</span>
+        </div>
+      </div>
+
+      <!-- Class XII -->
+      <div class="mb-2.5">
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px]">
+          <span class="font-bold text-gray-900">New Horizon Higher Secondary School</span>
+          <span class="text-xs text-gray-600">Maihar, Madhya Pradesh</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[12.5px] text-gray-700">
+          <span>Senior Secondary (Class XII) — <strong class="text-gray-900">Percentage: 85</strong></span>
+          <span class="text-xs text-gray-600">June 2024 – March 2025</span>
+        </div>
+      </div>
+
+      <!-- Class X -->
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[13px]">
+          <span class="font-bold text-gray-900">Miniland Academy Higher Secondary School</span>
+          <span class="text-xs text-gray-600">Maihar, Madhya Pradesh</span>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between text-xs sm:text-[12.5px] text-gray-700">
+          <span>SSLC (Class X) — <strong class="text-gray-900">Percentage: 88.6</strong></span>
+          <span class="text-xs text-gray-600">June 2022 – March 2023</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+
+</html>
