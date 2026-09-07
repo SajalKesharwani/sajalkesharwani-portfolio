@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sajal Kesharwani | 2nd Year B.Tech CSE & Aspiring Software Engineer</title>
+  <meta name="description"
+    content="Personal portfolio of Sajal Kesharwani — 2nd Year B.Tech CSE Student at Lovely Professional University, aspiring software engineer building scalable web platforms." />
+  <meta name="keywords"
+    content="Sajal Kesharwani, 2nd Year B.Tech CSE, Aspiring Software Engineer, Full-Stack Developer, React, Tailwind CSS, Supabase, Python, LPU, WorkBridge, LRNit" />
+  <meta name="author" content="Sajal Kesharwani" />
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Sajal Kesharwani | Software Engineer & Full-Stack Developer" />
+  <meta property="og:description"
+    content="Full-Stack Developer building scalable web platforms with clean, robust architecture." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              black: '#0A0A0A',
+              card: '#141414',
+              'card-hover': '#1C1C1C',
+              border: '#262626',
+              'border-subtle': '#1F1F1F',
+              'border-hover': '#525252',
+              text: '#F5F5F5',
+              muted: '#8A8A8A',
+              subtle: '#525252',
+              white: '#FFFFFF',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- React 18 & Babel Standalone -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body class="bg-[#0A0A0A] text-[#F5F5F5] font-sans selection:bg-white selection:text-black antialiased">
+  <div id="root"></div>
+
+  <!-- Application Script -->
+  <script type="text/babel" src="app.js"></script>
+</body>
+
+</html>
