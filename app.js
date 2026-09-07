@@ -210,11 +210,11 @@ function App() {
       desc: "Designed and built an end-to-end prototype under strict 36-hour hackathon constraints, placing in the top 15 among 100+ competing engineering teams."
     },
     {
-      title: "Student Organization Lead & Event Organizer",
+      title: "Event Organizing Team Member",
       event: "LRNit Student Club",
       date: "2025 – 2026",
       icon: "users",
-      desc: "Organized and facilitated technical hackathons and webinars engaging 200+ attendees across development and event management roles."
+      desc: "Collaborated with the organizing team to coordinate and manage technical hackathons and webinars, engaging 200+ student attendees."
     }
   ];
 
@@ -657,13 +657,13 @@ function App() {
           </div>
         </section>
 
-        {/* 6. ACHIEVEMENTS & LEADERSHIP */}
+        {/* 6. ACHIEVEMENTS & HIGHLIGHTS */}
         <section id="achievements" className="space-y-12">
           <div className="flex flex-col gap-2">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Accomplishments & Leadership
+              Accomplishments & Highlights
             </h2>
-            <p className="text-sm text-[#8A8A8A]">Hackathons, competitive milestones, and student organization leadership.</p>
+            <p className="text-sm text-[#8A8A8A]">Hackathons, competitive milestones, and student organization initiatives.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
