@@ -33,7 +33,7 @@ function App() {
     "2nd-Year B.Tech CSE Student @ Lovely Professional University (CGPA 8.2).",
     "Aspiring Software Engineer building scalable full-stack web platforms.",
     "Passionate about full-stack engineering, APIs & clean UI design.",
-    "GCP & AWS Certified Machine Learning Engineer."
+    "Top 15 Finalist at AtherX Hackathon among 100+ competing teams."
   ], []);
 
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
@@ -118,7 +118,7 @@ function App() {
     { name: "About", href: "#about", id: "about" },
     { name: "Skills", href: "#skills", id: "skills" },
     { name: "Projects", href: "#projects", id: "projects" },
-    { name: "Credentials", href: "#achievements", id: "achievements" },
+    { name: "Achievements", href: "#achievements", id: "achievements" },
     { name: "Education", href: "#education", id: "education" },
     { name: "Contact", href: "#contact", id: "contact" }
   ];
@@ -198,23 +198,6 @@ function App() {
         { label: "CMS Engine", value: "Supabase" },
         { label: "Deployment", value: "Netlify Edge" }
       ]
-    }
-  ];
-
-  const certifications = [
-    {
-      title: "Professional Machine Learning Engineer",
-      issuer: "Google Cloud",
-      badgeText: "GCP Certified",
-      icon: "cloud",
-      desc: "Demonstrated expertise in designing, building, and deploying production ML models on Google Cloud Platform with scalable data pipelines."
-    },
-    {
-      title: "Certified Machine Learning Engineer – Associate",
-      issuer: "Amazon Web Services (AWS)",
-      badgeText: "AWS Certified",
-      icon: "cpu",
-      desc: "Validated competence in architecting, tuning, and deploying cloud ML solutions, feature engineering, and inference pipelines on AWS."
     }
   ];
 
@@ -502,7 +485,7 @@ function App() {
                 I am a 2nd-year B.Tech Computer Science & Engineering student at <strong className="text-white font-medium">Lovely Professional University, Jalandhar (CGPA 8.2)</strong>. As an aspiring software engineer, I am passionate about learning and building real-world web platforms from the ground up — exploring authentication pipelines, interactive dashboards, REST APIs, and database schemas.
               </p>
               <p>
-                Alongside full-stack web development, I hold professional certifications in Machine Learning from both <strong className="text-white font-medium">Google Cloud (GCP Professional ML Engineer)</strong> and <strong className="text-white font-medium">AWS (AWS Certified ML Engineer – Associate)</strong>. This foundational training strengthens my problem-solving ability and data-driven thinking.
+                I specialize in crafting full-stack web applications, integrating secure authentication with Supabase, structuring scalable database schemas, and developing intuitive, responsive user experiences with modern design architectures.
               </p>
               <p>
                 I actively participate in hackathons to test my skills under pressure, achieving a <strong className="text-white font-medium">Top 15 finish among 100+ teams</strong> at the AtherX Hackathon. Beyond coursework, I am involved with the LRNit student organization, organizing events and collaborating with peers on exciting technical initiatives.
@@ -530,9 +513,9 @@ function App() {
               </div>
 
               <div className="spotlight-card p-5 space-y-1">
-                <span className="font-mono text-2xl sm:text-3xl font-bold text-white">2x</span>
-                <p className="font-mono text-[11px] text-[#8A8A8A] uppercase tracking-wider">ML Certifications</p>
-                <p className="text-xs text-[#525252]">Google Cloud & AWS</p>
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-white">2+</span>
+                <p className="font-mono text-[11px] text-[#8A8A8A] uppercase tracking-wider">Live Projects</p>
+                <p className="text-xs text-[#525252]">WorkBridge & LRNit</p>
               </div>
             </div>
 
@@ -674,59 +657,28 @@ function App() {
           </div>
         </section>
 
-        {/* 6. CERTIFICATIONS & ACHIEVEMENTS */}
+        {/* 6. ACHIEVEMENTS & LEADERSHIP */}
         <section id="achievements" className="space-y-12">
           <div className="flex flex-col gap-2">
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
-              Certifications & Accomplishments
+              Accomplishments & Leadership
             </h2>
-            <p className="text-sm text-[#8A8A8A]">Professional cloud certifications, hackathons, and leadership credentials.</p>
+            <p className="text-sm text-[#8A8A8A]">Hackathons, competitive milestones, and student organization leadership.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-
-            {/* Certifications Column */}
-            <div className="space-y-4">
-              <h3 className="font-mono text-xs uppercase tracking-wider text-[#8A8A8A] flex items-center gap-2 mb-2">
-                <Icon name="award" size={16} className="text-white" />
-                <span>Cloud & ML Certifications</span>
-              </h3>
-
-              {certifications.map((cert, idx) => (
-                <div key={idx} className="spotlight-card p-6 space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="mono-chip bg-white text-black font-semibold border-white">
-                      {cert.badgeText}
-                    </span>
-                    <span className="font-mono text-xs text-[#8A8A8A]">{cert.issuer}</span>
-                  </div>
-                  <h4 className="font-display font-bold text-lg text-white">{cert.title}</h4>
-                  <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">{cert.desc}</p>
+            {achievements.map((ach, idx) => (
+              <div key={idx} className="spotlight-card p-6 sm:p-8 space-y-4">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="mono-chip bg-white text-black font-semibold border-white">
+                    {ach.event}
+                  </span>
+                  <span className="font-mono text-xs text-[#8A8A8A]">{ach.date}</span>
                 </div>
-              ))}
-            </div>
-
-            {/* Achievements & Leadership Column */}
-            <div className="space-y-4">
-              <h3 className="font-mono text-xs uppercase tracking-wider text-[#8A8A8A] flex items-center gap-2 mb-2">
-                <Icon name="trophy" size={16} className="text-white" />
-                <span>Hackathons & Leadership</span>
-              </h3>
-
-              {achievements.map((ach, idx) => (
-                <div key={idx} className="spotlight-card p-6 space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="mono-chip bg-[#1C1C1C] text-white border-[#262626]">
-                      {ach.event}
-                    </span>
-                    <span className="font-mono text-xs text-[#8A8A8A]">{ach.date}</span>
-                  </div>
-                  <h4 className="font-display font-bold text-lg text-white">{ach.title}</h4>
-                  <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">{ach.desc}</p>
-                </div>
-              ))}
-            </div>
-
+                <h4 className="font-display font-bold text-xl text-white">{ach.title}</h4>
+                <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">{ach.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
