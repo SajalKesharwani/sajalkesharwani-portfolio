@@ -28,6 +28,47 @@ function App() {
   const [toastMessage, setToastMessage] = useState(null);
   const [copiedType, setCopiedType] = useState(null);
 
+  // Contact Form State
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (formErrors[name]) setFormErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name.trim()) errors.name = "Please enter your name.";
+    if (!formData.email.trim()) {
+      errors.email = "Please enter your email address.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errors.email = "Please enter a valid email address.";
+    }
+    if (!formData.message.trim()) errors.message = "Please enter your message.";
+    else if (formData.message.trim().length < 5) errors.message = "Message must be at least 5 characters.";
+    return errors;
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const errors = validateForm();
+    if (Object.keys(errors).length > 0) { setFormErrors(errors); return; }
+    setFormErrors({});
+    setIsSubmitting(true);
+    console.log("Contact Form Submitted:", formData);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setToastMessage("Message sent! Sajal will respond within 24–48 hours.");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => { setIsSubmitted(false); }, 4000);
+    }, 700);
+  };
+
   // Typewriter text cycling in hero
   const typewriterPhrases = useMemo(() => [
     "2nd-Year B.Tech CSE Student @ Lovely Professional University (CGPA 8.2).",
@@ -100,7 +141,7 @@ function App() {
     if (window.lucide) {
       window.lucide.createIcons();
     }
-  }, [activeSection, mobileMenuOpen, toastMessage]);
+  }, [activeSection, mobileMenuOpen, toastMessage, isSubmitted, isSubmitting]);
 
   // Copy to clipboard helper
   const copyToClipboard = (text, label) => {
@@ -790,111 +831,208 @@ function App() {
         </section>
 
         {/* 8. CONTACT SECTION */}
-        <section id="contact" className="space-y-12 pt-8">
-          <div className="spotlight-card p-8 sm:p-12 border border-[#262626] space-y-8 bg-gradient-to-b from-[#141414] to-[#0A0A0A]">
+        <section id="contact" className="space-y-8 pt-8">
+          <div className="flex flex-col gap-2">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              Let's Connect &amp; Collaborate
+            </h2>
+            <p className="text-sm text-[#8A8A8A]">
+              Whether you have an internship opportunity, a project collaboration, or want to discuss full-stack technologies — send a direct message below.
+            </p>
+          </div>
 
-            <div className="max-w-2xl space-y-4">
-              <h2 className="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight">
-                Let's Connect & Collaborate.
-              </h2>
-              <p className="text-sm sm:text-base text-[#8A8A8A] leading-relaxed">
-                Whether you have an internship opportunity, a project collaboration, or want to discuss full-stack technologies — feel free to reach out.
-              </p>
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+
+            {/* Left Column — Availability + Quick Channels (5 cols) */}
+            <div className="lg:col-span-5 space-y-6">
+
+              {/* Availability Badge Card */}
+              <div className="spotlight-card p-6 sm:p-7 border border-[#262626] space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-3 w-3">
+                    <span className="pulse-dot absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                  </span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-white font-semibold">Open to Opportunities</span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#8A8A8A] leading-relaxed">
+                  Currently available for Summer 2026 engineering internships, full-stack software development projects, and technical hackathons.
+                </p>
+                <div className="pt-2 border-t border-[#262626] flex items-center justify-between text-xs text-[#8A8A8A] font-mono">
+                  <span>Location: Punjab / MP, India</span>
+                  <span>IST (UTC+5:30)</span>
+                </div>
+              </div>
+
+              {/* Direct Contact Channels */}
+              <div className="space-y-3">
+
+                {/* Email Row */}
+                <div className="bg-[#141414] p-4 rounded-xl border border-[#262626] flex items-center justify-between gap-3 hover:border-[#404040] transition-colors">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-[#1F1F1F] text-white shrink-0"><Icon name="mail" size={16} /></div>
+                    <div className="min-w-0">
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-[#8A8A8A]">Email</p>
+                      <p className="font-mono text-xs text-white truncate">kesharwanisajal01@gmail.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <a href="mailto:kesharwanisajal01@gmail.com" className="p-1.5 rounded-lg bg-white text-black hover:bg-gray-200 transition-colors" title="Open Mail Client">
+                      <Icon name="external-link" size={14} />
+                    </a>
+                    <button onClick={() => copyToClipboard("kesharwanisajal01@gmail.com", "Email")} className="p-1.5 rounded-lg bg-[#1C1C1C] hover:bg-[#262626] text-white border border-[#262626] transition-colors" title="Copy Email">
+                      <Icon name={copiedType === "Email" ? "check" : "copy"} size={14} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Phone Row */}
+                <div className="bg-[#141414] p-4 rounded-xl border border-[#262626] flex items-center justify-between gap-3 hover:border-[#404040] transition-colors">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-[#1F1F1F] text-white shrink-0"><Icon name="phone" size={16} /></div>
+                    <div className="min-w-0">
+                      <p className="font-mono text-[10px] uppercase tracking-wider text-[#8A8A8A]">Phone</p>
+                      <p className="font-mono text-xs text-white">+91 9399718763</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <a href="tel:+919399718763" className="p-1.5 rounded-lg bg-white text-black hover:bg-gray-200 transition-colors" title="Call">
+                      <Icon name="phone-call" size={14} />
+                    </a>
+                    <button onClick={() => copyToClipboard("+919399718763", "Phone")} className="p-1.5 rounded-lg bg-[#1C1C1C] hover:bg-[#262626] text-white border border-[#262626] transition-colors" title="Copy Phone Number">
+                      <Icon name={copiedType === "Phone" ? "check" : "copy"} size={14} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Social Row */}
+                <div className="grid grid-cols-2 gap-3">
+                  <a href="https://www.linkedin.com/in/sajal-kesharwani-" target="_blank" rel="noopener noreferrer"
+                    className="bg-[#141414] p-3.5 rounded-xl border border-[#262626] flex items-center justify-between gap-2 hover:border-[#404040] hover:bg-[#181818] transition-colors group">
+                    <div className="flex items-center gap-2.5">
+                      <Icon name="linkedin" size={15} className="text-[#8A8A8A]" />
+                      <span className="font-mono text-xs text-white">LinkedIn</span>
+                    </div>
+                    <Icon name="arrow-up-right" size={13} className="text-[#525252]" />
+                  </a>
+                  <a href="https://github.com/SajalKesharwani" target="_blank" rel="noopener noreferrer"
+                    className="bg-[#141414] p-3.5 rounded-xl border border-[#262626] flex items-center justify-between gap-2 hover:border-[#404040] hover:bg-[#181818] transition-colors group">
+                    <div className="flex items-center gap-2.5">
+                      <Icon name="github" size={15} className="text-[#8A8A8A]" />
+                      <span className="font-mono text-xs text-white">GitHub</span>
+                    </div>
+                    <Icon name="arrow-up-right" size={13} className="text-[#525252]" />
+                  </a>
+                </div>
+
+              </div>
             </div>
 
-            {/* Quick Contact Buttons */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+            {/* Right Column — Contact Form Card (7 cols) */}
+            <div className="lg:col-span-7">
+              <div className="bg-[#141414] rounded-2xl p-6 sm:p-8 border border-[#2A2A2A] shadow-2xl shadow-black/60">
+                <form onSubmit={handleFormSubmit} className="space-y-5" noValidate>
 
-              {/* Email Button */}
-              <div className="bg-[#0E0E0E] p-5 rounded-xl border border-[#262626] flex flex-col justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[#8A8A8A]">
-                    <Icon name="mail" size={16} />
-                    <span className="font-mono text-xs uppercase tracking-wider">Email</span>
+                  {/* Name + Email — side by side on sm+ */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label htmlFor="contact-name" className="block font-mono text-xs uppercase tracking-wider text-[#8A8A8A]">
+                        Name <span className="text-red-500 font-bold">*</span>
+                      </label>
+                      <input
+                        id="contact-name" type="text" name="name"
+                        value={formData.name} onChange={handleInputChange}
+                        placeholder="Your Name" autoComplete="name"
+                        className={`contact-field${formErrors.name ? " error" : ""}`}
+                      />
+                      {formErrors.name && (
+                        <p className="font-mono text-[11px] text-red-400 flex items-center gap-1">
+                          <Icon name="alert-circle" size={12} /><span>{formErrors.name}</span>
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label htmlFor="contact-email" className="block font-mono text-xs uppercase tracking-wider text-[#8A8A8A]">
+                        Email <span className="text-red-500 font-bold">*</span>
+                      </label>
+                      <input
+                        id="contact-email" type="email" name="email"
+                        value={formData.email} onChange={handleInputChange}
+                        placeholder="your@email.com" autoComplete="email"
+                        className={`contact-field${formErrors.email ? " error" : ""}`}
+                      />
+                      {formErrors.email && (
+                        <p className="font-mono text-[11px] text-red-400 flex items-center gap-1">
+                          <Icon name="alert-circle" size={12} /><span>{formErrors.email}</span>
+                        </p>
+                      )}
+                    </div>
+
                   </div>
-                  <p className="font-mono text-xs text-white truncate">kesharwanisajal01@gmail.com</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <a
-                    href="mailto:kesharwanisajal01@gmail.com"
-                    className="flex-1 py-1.5 px-3 rounded-lg bg-white text-black text-center font-sans text-xs font-semibold hover:bg-gray-200 transition-colors"
-                  >
-                    Send Email
-                  </a>
-                  <button
-                    onClick={() => copyToClipboard("kesharwanisajal01@gmail.com", "Email")}
-                    className="p-1.5 rounded-lg bg-[#1C1C1C] hover:bg-[#262626] text-white border border-[#262626] transition-colors"
-                    title="Copy Email"
-                  >
-                    <Icon name={copiedType === "Email" ? "check" : "copy"} size={14} />
-                  </button>
-                </div>
-              </div>
 
-              {/* Phone Button */}
-              <div className="bg-[#0E0E0E] p-5 rounded-xl border border-[#262626] flex flex-col justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[#8A8A8A]">
-                    <Icon name="phone" size={16} />
-                    <span className="font-mono text-xs uppercase tracking-wider">Phone</span>
+                  {/* Subject */}
+                  <div className="space-y-2">
+                    <label htmlFor="contact-subject" className="block font-mono text-xs uppercase tracking-wider text-[#8A8A8A]">Subject</label>
+                    <select
+                      id="contact-subject" name="subject"
+                      value={formData.subject} onChange={handleInputChange}
+                      className="contact-field"
+                    >
+                      <option value="">Select a topic...</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Job Opportunity">Job Opportunity</option>
+                      <option value="Freelance/Project">Freelance / Project</option>
+                      <option value="Collaboration">Collaboration</option>
+                      <option value="Other">Other</option>
+                    </select>
                   </div>
-                  <p className="font-mono text-xs text-white">+91 9399718763</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <a
-                    href="tel:+919399718763"
-                    className="flex-1 py-1.5 px-3 rounded-lg bg-white text-black text-center font-sans text-xs font-semibold hover:bg-gray-200 transition-colors"
-                  >
-                    Call
-                  </a>
-                  <button
-                    onClick={() => copyToClipboard("+919399718763", "Phone")}
-                    className="p-1.5 rounded-lg bg-[#1C1C1C] hover:bg-[#262626] text-white border border-[#262626] transition-colors"
-                    title="Copy Phone Number"
-                  >
-                    <Icon name={copiedType === "Phone" ? "check" : "copy"} size={14} />
-                  </button>
-                </div>
-              </div>
 
-              {/* LinkedIn */}
-              <div className="bg-[#0E0E0E] p-5 rounded-xl border border-[#262626] flex flex-col justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[#8A8A8A]">
-                    <Icon name="linkedin" size={16} />
-                    <span className="font-mono text-xs uppercase tracking-wider">LinkedIn</span>
+                  {/* Message */}
+                  <div className="space-y-2">
+                    <label htmlFor="contact-message" className="block font-mono text-xs uppercase tracking-wider text-[#8A8A8A]">
+                      Message <span className="text-red-500 font-bold">*</span>
+                    </label>
+                    <textarea
+                      id="contact-message" name="message" rows={7}
+                      value={formData.message} onChange={handleInputChange}
+                      placeholder="Tell me about your project or what you need help with..."
+                      className={`contact-field resize-y min-h-[140px]${formErrors.message ? " error" : ""}`}
+                    ></textarea>
+                    {formErrors.message && (
+                      <p className="font-mono text-[11px] text-red-400 flex items-center gap-1">
+                        <Icon name="alert-circle" size={12} /><span>{formErrors.message}</span>
+                      </p>
+                    )}
                   </div>
-                  <p className="font-mono text-xs text-white truncate">in/sajal-kesharwani-</p>
-                </div>
-                <a
-                  href="https://www.linkedin.com/in/sajal-kesharwani-"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-1.5 px-3 rounded-lg bg-white text-black text-center font-sans text-xs font-semibold hover:bg-gray-200 transition-colors"
-                >
-                  View Profile
-                </a>
-              </div>
 
-              {/* GitHub */}
-              <div className="bg-[#0E0E0E] p-5 rounded-xl border border-[#262626] flex flex-col justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[#8A8A8A]">
-                    <Icon name="github" size={16} />
-                    <span className="font-mono text-xs uppercase tracking-wider">GitHub</span>
+                  {/* Submit Button */}
+                  <div className="pt-2 space-y-4">
+                    <button
+                      id="contact-submit"
+                      type="submit"
+                      disabled={isSubmitting || isSubmitted}
+                      className="w-full py-4 px-6 rounded-xl flex items-center justify-center gap-2.5 text-sm tracking-widest uppercase btn-monochrome-submit"
+                    >
+                      {isSubmitted ? (
+                        <><Icon name="check" size={18} /><span>Message Sent ✓</span></>
+                      ) : isSubmitting ? (
+                        <><Icon name="loader" size={18} className="animate-spin" /><span>Sending...</span></>
+                      ) : (
+                        <><Icon name="send" size={16} /><span>Send Message</span></>
+                      )}
+                    </button>
+
+                    <p className="text-center font-mono text-[11px] uppercase tracking-widest text-[#525252]">
+                      TYPICAL RESPONSE TIME: 24–48 HOURS
+                    </p>
                   </div>
-                  <p className="font-mono text-xs text-white truncate">@SajalKesharwani</p>
-                </div>
-                <a
-                  href="https://github.com/SajalKesharwani"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-1.5 px-3 rounded-lg bg-white text-black text-center font-sans text-xs font-semibold hover:bg-gray-200 transition-colors"
-                >
-                  View Repositories
-                </a>
-              </div>
 
+                </form>
+              </div>
             </div>
 
           </div>

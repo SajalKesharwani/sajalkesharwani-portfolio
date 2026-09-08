@@ -170,3 +170,87 @@ html {
 .toast-animate {
   animation: slide-in-bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ── Contact Form Fields ─────────────────────────────── */
+.contact-field {
+  width: 100%;
+  background-color: #1C1C1C;
+  border: 1px solid #2A2A2A;
+  border-radius: 0.75rem;
+  color: #F5F5F5;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding: 0.875rem 1rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-field::placeholder {
+  color: #525252;
+}
+
+.contact-field:focus {
+  outline: none;
+  background-color: #212121;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08), 0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+.contact-field.error {
+  border-color: #EF4444;
+  background-color: rgba(239, 68, 68, 0.04);
+}
+
+.contact-field.error:focus {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+/* Select — custom monochrome arrow */
+select.contact-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A8A8A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+select.contact-field:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+select.contact-field option {
+  background-color: #141414;
+  color: #F5F5F5;
+}
+
+/* Submit Button — black/white hover inversion */
+.btn-monochrome-submit {
+  background-color: #FFFFFF;
+  color: #0A0A0A;
+  border: 1px solid #FFFFFF;
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-monochrome-submit:hover:not(:disabled) {
+  background-color: #0A0A0A;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.btn-monochrome-submit:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-monochrome-submit:disabled {
+  opacity: 0.85;
+  cursor: default;
+}
